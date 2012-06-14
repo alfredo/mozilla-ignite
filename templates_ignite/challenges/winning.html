@@ -16,7 +16,11 @@
             <a href="{{ entry.get_absolute_url() }}">
                 <h4>
                     <div class="frame box">
-                    <img src="{{ entry.get_image_src() }}" alt="">
+                      {% if entry.image %}
+                      <img src="{{ thumbnail(entry.image, (200,0)) }}" alt="" />
+                      {% else %}
+                      <img src="{{ MEDIA_URL }}img/project-default.gif" alt="" />
+                      {% endif %}
                     </div>
                     {{ entry.title }}
                 </h4>

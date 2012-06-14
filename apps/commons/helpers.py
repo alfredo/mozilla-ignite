@@ -9,6 +9,7 @@ from django.utils.html import strip_tags
 
 from jingo import register
 import jinja2
+from easy_thumbnails.files import get_thumbnailer
 
 from .urlresolvers import reverse
 
@@ -66,3 +67,14 @@ def _urlencode(items):
 def urlencode(txt):
     """Url encode a path."""
     return urllib.quote_plus(txt)
+
+
+@register.function
+def thumbnail(image, size, crop=True, **kwargs):
+    defaults = {
+        'size': size,
+        'crop': crop,
+        }
+    if kwargs:
+        defaults.update(kwargs)
+    return get_thumbnailer(image).get_thumbnail(defaults).url

@@ -105,7 +105,7 @@ SUPPORTED_NONLOCALES = ['media', 'push']
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = path('media/ignite')
+MEDIA_ROOT = path('media', 'ignite')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -247,6 +247,9 @@ INSTALLED_APPS = (
 
     # Feature flipping
     'waffle',
+
+    # Tumbnails
+    'easy_thumbnails',
 
     # Ignite specific
     'innovate',

@@ -261,6 +261,10 @@ class Submission(BaseModel):
     def challenge(self):
         return self.phase.challenge
 
+    @property
+    def image(self):
+        return self.sketh_note
+
     def get_image_src(self):
         media_url = getattr(settings, 'MEDIA_URL', '')
         path = lambda f: f and '%s%s' % (media_url, f)
