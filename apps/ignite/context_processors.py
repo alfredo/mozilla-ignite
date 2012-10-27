@@ -24,7 +24,7 @@ def browserid_target_processor(request):
             form_target = urljoin(form_target, '?' + query_string)
     else:
         # Craft a URL to take them back to the current page
-        query_string = urlencode({RFN: request.get_full_path()})
+        query_string = urlencode({RFN: request.get_full_path().encode('utf-8')})
         form_target = urljoin(form_target, '?' + query_string)
     return {'browserid_target': form_target}
 
